@@ -9,7 +9,9 @@ import { PostagemService } from './../service/postagem.service';
 })
 export class FeedComponent implements OnInit {
 
-listaPostagens: Postagem []
+  listaPostagens: Postagem []
+
+  postagem: Postagem = new Postagem
 
   constructor(private postagemService: PostagemService) { }
 
@@ -27,6 +29,13 @@ listaPostagens: Postagem []
 
     })
 
+  }
+
+  publicar(){
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) =>{
+      this.postagem = resp
+      location.assign('/feed')
+    })
   }
 
 }
