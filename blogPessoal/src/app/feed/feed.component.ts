@@ -22,6 +22,9 @@ export class FeedComponent implements OnInit {
 
     this.findallPostagens()
 
+    window.scroll(0, 0)
+
+
   }
 
   findallPostagens () {
